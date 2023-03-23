@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    filter: brightness(70%);
+    font-family: 'Nunito', sans-serif;
+    
+}
+h2{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+}
+
+.greeting{
+    user-select: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, red 50%, green 50%);
+    min-height: 100vh;
+    display: block;
+    
+}
+
+.game-result{
+    user-select: none;
+    cursor: pointer;
+    background-color: green;
+    min-height: 100vh;
+    display: block;
+}
+
+p{
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+}
+button{
+    position: absolute;
+    top: 40%;
+    left: 44.5%;
+    height: 60px;
+    font-size: larger;
+    border-radius: 5px;
+    border: solid 2px;
+    border-color: aquamarine;
+    background-color: aquamarine;
+}
+
+.game-start{
+    user-select: none;
+    cursor: pointer;
+    background-color: green;
+    min-height: 100vh;
+    display: block;
+}
+
+h1{
+    margin: auto;
+    text-align: center;
+}
+
+.game-stop{
+    display: block;
+    user-select: none;
+    cursor: pointer;
+    background-color: red;
+    min-height: 100vh;
+}
+

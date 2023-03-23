@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    filter: brightness(70%);
+    font-family: 'Nunito', sans-serif;
+}
+h1{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    color: white;
+    font-size: 100px;
+}
+h3{
+    text-align: center;
+}
+button{
+    height: 40px;
+    width: 100px;
+    padding: 5px;
+    border-radius: 4px;
+    border-color: rgb(168, 168, 168);
+    background-color: rgb(168, 168, 168);
+    cursor: pointer;
+    margin-left: 47%;
+    font-family: 'Nunito', sans-serif;
+}
+a{
+    text-decoration: none;
+}

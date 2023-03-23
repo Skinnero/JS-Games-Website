@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/hangman.css">
+<script src="/static/js/hangman.js" defer></script>
+{% endblock %}
+{% block body %}
+<div id="word">
+    <h1>Welcome to Hangman Game!</h1>
+    <p>In order to win the game you will have to guess the word. You have only limited amount of guesses which can help you by filling empty spaces</p>
+    <button id="start">Start!</button>
+    <div id="right-bottom">
+        <span id="player-letters">Guessed letters:</span><br>
+        <span id="player-life">Guesses left: 5</span>
+    </div>
+</div>
+{% endblock %}

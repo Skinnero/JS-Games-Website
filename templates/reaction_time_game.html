@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block head%}
+<link rel="stylesheet" href="static/css/reaction_time_game.css">
+<script src="static\js\reaction_time_game.js" defer></script>
+{%endblock%}
+{% block body %}
+    <div>
+        <div class="greeting">
+            <p id="score"> </p>
+            <h1 id="game">Press on the square when the color turns green <br> (Click anywhere to start!)</h1>
+        </div>
+        <a href="{{url_for('index')}}"><button hidden>Save your score!</button></a>
+    </div>
+{%endblock%}
