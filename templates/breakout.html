@@ -4,5 +4,10 @@
 <script src="/static/js/breakout.js" defer></script>
 {% endblock %}
 {% block body %}
+<h1 id="score">Score: 0</h1>
 <canvas id="game-field"></canvas>
+<div class="buttons">
+    <button id="start">Start</button>
+    <button id="save" style="display: none;" onclick="saveData()">Save</button>
+</div>
 {% endblock %}

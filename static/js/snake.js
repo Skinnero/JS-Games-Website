@@ -24,7 +24,7 @@ function gameInit (){
 
 function saveData() {
     let name = prompt('Enter your nickname:')
-    const data = {user_name: name, game_name: 'snake', score: score}
+    const data = {user_name: name, game: 'snake', score: score}
     fetch('/save', {
         method: 'POST',
         headers: {
@@ -40,7 +40,7 @@ function showEndGameMessage(message) {
     clearInterval(interval)
     const scoreText = document.getElementById('score')
     scoreText.innerHTML = message
-    document.getElementsByClassName('game-board')[0].style.filter = 'brightness(30%)';
+    document.getElementsByClassName('game-board')[0].style.filter = 'brightness(50%)';
     document.getElementById('buttons').style.display = 'flex'
     document.removeEventListener('keydown', gameLoop);
 }
