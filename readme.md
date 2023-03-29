@@ -1,1 +1,1 @@
-<h1>Java Script Game School Project</h1>
+<h1><center>Java Script Game School Project</center></h1>
