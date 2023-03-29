@@ -17,11 +17,11 @@ def snake():
 
 @app.route('/reaction-time')
 def reaction_time_game():
-    return render_template('reaction_time_game.html', game_name='reaction_time_game')
+    return render_template('reaction_time.html')
 
 @app.route('/typing')
 def typing_game():
-    return render_template('typing_game.html') 
+    return render_template('typing.html') 
 
 @app.route('/breakout')
 def breakout():

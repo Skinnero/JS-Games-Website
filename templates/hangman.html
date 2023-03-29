@@ -8,9 +8,12 @@
     <h1>Welcome to Hangman Game!</h1>
     <p>In order to win the game you will have to guess the word. You have only limited amount of guesses which can help you by filling empty spaces</p>
     <button id="start">Start!</button>
+    <button id="save" onclick="saveData()" hidden>Save Score!</button>
+    <button id="proceed" onclick="proceedGame()" hidden>Continue</button>
     <div id="right-bottom">
+        <span id="player-life">Guesses left: 5</span><br>
         <span id="player-letters">Guessed letters:</span><br>
-        <span id="player-life">Guesses left: 5</span>
+        <span id="player-words">Guessed proverbs: 0</span>
     </div>
 </div>
 {% endblock %}

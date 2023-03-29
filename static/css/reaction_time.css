@@ -36,12 +36,11 @@ p{
 button{
     position: absolute;
     top: 40%;
-    left: 44.5%;
+    left: 46%;
     height: 60px;
     font-size: larger;
-    border-radius: 5px;
-    border: solid 2px;
-    border-color: aquamarine;
+    border-radius: 15px;
+    border: none;
     background-color: aquamarine;
 }
 

@@ -1,38 +1,31 @@
 body {
     background: linear-gradient(45deg, rgba(19,185,10,1) 0%, rgba(164,255,0,1) 100%);
-    filter: brightness(70%);
-    font-family: 'Nunito', sans-serif;
-    padding: 0;
-    margin: 0;
+    height: 100vh;
 }
 #word{
-    height: auto;
-    min-height: 100vh;
     align-content: center;
     justify-content: center;
     display: flex;
+    flex-direction: column;
     position: relative;
 }
 h1{
-    font-size: 70px;
-    text-align: center;
-    margin-right: 10%;
-    margin-left: 10%;
+    font-size: 2vw;
 }
 p{
     text-align: center;
-    position: fixed;
-    margin-top: 200px;
-
+    font-size: 20px;
 }
 button{
     text-align: center;
-    height: 40px;
-    position: fixed;
+    font-family: inherit;
+    margin: 15px auto;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
     border-radius: 15px;
-    border-color: lawngreen;
+    border: none;
     background-color: greenyellow;
-    margin-top: 250px;
 
 }
 #right-bottom{

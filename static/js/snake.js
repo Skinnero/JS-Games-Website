@@ -13,7 +13,6 @@ let snakeBody = [snakeHead]
 let appleOnBoard = false
 let movementDirection = []
 
-
 document.addEventListener('keydown', gameLoop)
 window.onload = gameInit()
 
@@ -23,42 +22,57 @@ function gameInit (){
     putSnakeOnBoard(snakeBody)
 }
 
+function saveData() {
+    let name = prompt('Enter your nickname:')
+    const data = {user_name: name, game_name: 'snake', score: score}
+    fetch('/save', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    window.location = '/hall-of-fame'
+}
+
+function showEndGameMessage(message) {
+    clearInterval(interval)
+    const scoreText = document.getElementById('score')
+    scoreText.innerHTML = message
+    document.getElementsByClassName('game-board')[0].style.filter = 'brightness(30%)';
+    document.getElementById('buttons').style.display = 'flex'
+    document.removeEventListener('keydown', gameLoop);
+}
+
 function gameLoop(event) {
-    if (captureKeys(event)){
-        clearInterval(interval)
-        document.getElementById('score').innerText = `Score: ${score}`
-        if (checkLoseCondition(movementDirection)) {
-            clearInterval(interval)
-            const scoreText = document.getElementsByTagName('h1')[0]
-            scoreText.innerHTML = `You lost your game you got ${score} score`
-            alert('GAME OVER!')
-            return
-        } else if (checkWinCondition()) {
-            clearInterval(interval)
-            alert('CONGRATULATIONS YOU WON!')
-            return
-        }
+
+    if (!captureKeys(event)) {
+        return
+    }
+    
+    clearInterval(interval)
+    document.getElementById('score').innerText = `Score: ${score}`
+    if (checkWinCondition()) {
+        showEndGameMessage(`You won the game, you got ${score} score!`)
+    } else if (checkLoseCondition(movementDirection)) {
+        showEndGameMessage(`You lost the game, you got ${score} score!`)
+    } else {
         generateNewApple()
         moveSnake(snakeBody)
         putSnakeOnBoard(snakeBody)
         interval = setInterval(() => {
             document.getElementById('score').innerText = `Score: ${score}`
+            
             if (checkWinCondition()) {
-                clearInterval(interval)
-                const scoreText = document.getElementsByTagName('h1')[0]
-                scoreText.innerHTML = `You won the game, you got ${score} score!`
-                alert('CONGRATULATIONS YOU WON!')
-                return
+                showEndGameMessage(`You won the game, you got ${score} score!`)
             } else if (checkLoseCondition(movementDirection)) {
-                clearInterval(interval)
-                const scoreText = document.getElementsByTagName('h1')[0]
-                scoreText.innerHTML = `You lost the game, you got ${score} score!`
-                alert('GAME OVER!')
-                return
+                showEndGameMessage(`You lost the game, you got ${score} score!`)
+            } else {
+                generateNewApple()
+                moveSnake(snakeBody)
+                putSnakeOnBoard(snakeBody)
             }
-            generateNewApple()
-            moveSnake(snakeBody)
-            putSnakeOnBoard(snakeBody)
         },SNAKE_SPEED)
     }
 }
