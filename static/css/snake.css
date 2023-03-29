@@ -21,6 +21,7 @@ h1{
 }
 
 #buttons button{
+    position: relative;
     font-family: inherit;
     font-size: 40px;
     margin: 10px;
