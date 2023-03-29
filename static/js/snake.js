@@ -2,8 +2,8 @@ const BOARD_ROW_SIZE = 10 // Need to change grid-template-columns in css as well
 const FIELD_IMG = 'static/images/snake_grass.png'
 const SNAKE_IMG = 'static/images/snake_on_grass.png'
 const APPLE_IMG = 'static/images/apple_on_grass.png'
-const SNAKE_SPEED = 1000
 
+let snakeSpeed = 1000
 let interval = undefined
 let apple = []
 let score = 0
@@ -73,7 +73,7 @@ function gameLoop(event) {
                 moveSnake(snakeBody)
                 putSnakeOnBoard(snakeBody)
             }
-        },SNAKE_SPEED)
+        },snakeSpeed)
     }
 }
 
@@ -172,6 +172,7 @@ function moveSnake(snake) {
         if (newSnakeHead[0] != apple[0] || newSnakeHead[1] != apple[1]) {
             snakeBody.pop()
         } else {
+            snakeSpeed -= 10
             score ++
             appleOnBoard = false
         }
