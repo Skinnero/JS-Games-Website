@@ -1,0 +1,105 @@
+{% extends 'index.html'%}
+{%block head%}
+<link rel="stylesheet" href="/static/css/hall-of-fame.css">
+<script src="/static/js/hall-of-fame.js" defer></script>
+{%endblock%}
+{%block body%}
+
+<h1>Hall of Fame</h1>
+
+<div class="inside-block">
+    <div class="tabs">
+        <button class="tablinks" onclick="openScoreBoard(event, 'snake')" >Snake</button>
+        <button class="tablinks" onclick="openScoreBoard(event, 'reaction-time')" >Reaction Time</button>
+        <button class="tablinks" onclick="openScoreBoard(event, 'typing')" >Typing</button>
+        <button class="tablinks" onclick="openScoreBoard(event, 'hangman')" >Hangman</button>
+        <button class="tablinks" onclick="openScoreBoard(event, 'breakout')" >Breakout</button>
+    </div>
+    <div class="tabcontent" id="snake">
+        <h1 id="tabcontent-title">Snake</h1>
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Score</th>
+                </tr>
+        {% for score in data%}
+        {% if score['game'] == 'snake' %}
+                <tr>
+                    <td>{{score['user_name']}}</td>
+                    <td>{{score['score']}}</td>
+                </tr>   
+        {% endif%}
+        {% endfor%}
+            </table>
+    </div>
+    <div class="tabcontent" id="reaction-time">
+        <h1 id="tabcontent-title">Reaction Time</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+        {% for score in data%}
+        {% if score['game'] == 'reaction_time' %}
+                <tr>
+                    <td>{{score['user_name']}}</td>
+                    <td>{{score['score']}}</td>
+                </tr>
+        {% endif%}
+        {% endfor%}
+            </table>
+    </div>
+    <div class="tabcontent" id="typing">
+        <h1 id="tabcontent-title">Typying</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+        {% for score in data%}
+        {% if score['game'] == 'typing' %}
+                <tr>
+                    <td>{{score['user_name']}}</td>
+                    <td>{{score['score']}}</td>
+                </tr>
+        {% endif%}
+        {% endfor%}
+            </table>
+    </div>
+    <div class="tabcontent" id="hangman">
+        <h1 id="tabcontent-title">Hangman</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+        {% for score in data%}
+        {% if score['game'] == 'hangman' %}
+                <tr>
+                    <td>{{score['user_name']}}</td>
+                    <td>{{score['score']}}</td>
+                </tr>
+        {% endif%}
+        {% endfor%}
+            </table>
+    </div>
+    <div class="tabcontent" id="breakout">
+        <h1 id="tabcontent-title">Breakout</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+        {% for score in data%}
+        {% if score['game'] == 'breakout' %}
+                <tr>
+                    <td>{{score['user_name']}}</td>
+                    <td>{{score['score']}}</td>
+                </tr>
+        {% endif%}
+        {% endfor%}
+            </table>
+    </div>
+</div>
+{%endblock%}
+

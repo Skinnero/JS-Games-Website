@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-    <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
     <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
     <link rel="stylesheet" href="static/css/main.css">
 {%block head%}
@@ -18,11 +17,13 @@
 <body>
     <nav>
         <ul>
-            <li><a href="{{url_for('index')}}">Home</a></li>
-            <li><a href="{{url_for('snake')}}">Snake</a></li>
-            <li><a href="{{url_for('reaction_time_game')}}">Reaction Time</a></li>
-            <li><a href="{{url_for('typing_game')}}">Typing</a></li>
-            <li><a href="{{url_for('hangman')}}">Hangman</a></li>
+            <li id="left-li"><a href="{{url_for('index')}}">Home</a></li>
+            <li id="left-li"><a href="{{url_for('snake')}}">Snake</a></li>
+            <li id="left-li"><a href="{{url_for('reaction_time_game')}}">Reaction Time</a></li>
+            <li id="left-li"><a href="{{url_for('typing_game')}}">Typing</a></li>
+            <li id="left-li"><a href="{{url_for('hangman')}}">Hangman</a></li>
+            <li id="left-li"><a href="{{url_for('breakout')}}">Breakout</a></li>
+            <li id="right-li"><a href="{{url_for('hall_of_fame')}}">Hall of Fame</a></li>
         </ul>
     </nav>
 {%block body%}

@@ -2,23 +2,12 @@
     width: 0vw;
     height: 0vh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    padding-top: 200px;
+    grid-template-columns: repeat(10, 1fr);
     margin: auto;
     justify-content: center;
     align-items: center;
 }
 h1{
-    margin: auto;
-    position: fixed;
-    bottom: 20%;
+    position: relative;
     text-align: center;
 }
-.grass{
-    background: url('static/images/snake_grass.png');
-}
-
-.snake{
-    background: url('static/images/snake_on_grass.png');
-}
-/*     perspective: 100vh; */
