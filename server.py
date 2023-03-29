@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
-from data_handler import data_handler
+from flask import Flask, render_template, request, jsonify
+from data_handler import scoreboard
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -10,7 +10,6 @@ def index():
 @app.route('/hangman')
 def hangman():
     return render_template('hangman.html')
-
 
 @app.route('/snake')
 def snake():
@@ -24,9 +23,18 @@ def reaction_time_game():
 def typing_game():
     return render_template('typing_game.html') 
 
+@app.route('/breakout')
+def breakout():
+    return render_template('breakout.html')
+
+@app.route('/hall-of-fame')
+def hall_of_fame():
+    data = scoreboard.read_db_for_hof()
+    return render_template('hall-of-fame.html', data=data)
+
 @app.route('/save', methods=['POST'])
 def save():
-    data_handler.save_score_to_db(request.json)
+    scoreboard.save_score_to_db(request.json)
     return jsonify({'success': True})
 
 
