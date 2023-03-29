@@ -43,6 +43,7 @@ function saveData() {
         body: JSON.stringify(data)
     })
     .then(response => response.json())
+    window.location = '/hall-of-fame'
 }
 
 function setResult(time) {

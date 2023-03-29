@@ -1,6 +1,6 @@
 document.getElementsByTagName('button')[0].addEventListener('click', main)
 const INVALID_KEYSTROKES = ['CapsLock', 'Shift','Backspace', 'Enter', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
-'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 
+'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'Control'
 ]
 let LIST_OF_WORDS = ['Abandon','Absence','Accomplish', 'Beautiful', 'Behavior', 'Celebration', 'Commercial', 'Environmental',
 'Executive', 'Figure', 'Foreign', 'Generation', 'Government', 'Human', 'Individual', 'International', 'Knowledge', 'Management',
@@ -82,7 +82,7 @@ function setResultDiv(gameDiv) {
 
 function saveData() {
     let userName = prompt('Please enter you nickname')
-    const data = {user_name: userName, game_name: 'typing', score: playerScore}
+    const data = {user_name: userName, game: 'typing', score: playerScore}
     fetch('/save', {
         method: 'POST',
         headers: {
@@ -91,6 +91,7 @@ function saveData() {
         body: JSON.stringify(data)
     })
     .then(response => response.json())
+    window.location = '/hall-of-fame'
 }
 
 function createSaveScoreButton(gameDiv) {
