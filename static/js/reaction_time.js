@@ -11,6 +11,7 @@ let reactionTime = 0
 let bestTimer = Infinity
 
 function main() {
+    cancelAnimationFrame(intervalId)
     if (this.classList.contains('greeting')) {
         this.classList.add('game-stop')
         this.classList.toggle('greeting')
@@ -23,7 +24,6 @@ function main() {
         gamePause()
     }
     else if (this.classList.contains('game-start')) {
-        clearInterval(intervalId)
         gameText.innerHTML = `${reactionTime}<br>(Click on screen to try agian!)`
         this.classList.toggle('game-result')
         setResult(reactionTime)
@@ -67,12 +67,15 @@ function getRandomInterval() {
         startTime = new Date()
         gameBoard.classList.toggle('game-start')
         gameBoard.classList.toggle('game-stop')
-        intervalId = setInterval(() => {
-            let time = endTimer(startTime)
-            gameText.innerText = time
-            reactionTime = time
-        })
+        requestAnimationFrame(displayTime)
     }, wait)
+}
+
+function displayTime() {
+    let time = endTimer(startTime)
+    gameText.innerText = time
+    reactionTime = time
+    intervalId = requestAnimationFrame(displayTime)
 }
 
 function endTimer(startTime) {

@@ -33,12 +33,12 @@ let score = 0
 let interval 
 
 function startGame() {
-    interval = setInterval(draw, 10)
+    interval = requestAnimationFrame(draw)
     document.getElementById('start').style.display = 'none'
 }
 
 function displayGameOver() {
-    clearInterval(interval)
+    cancelAnimationFrame(interval)
     canvas.style.filter = 'brightness(50%)'
     document.getElementById('start').style.display = 'block'
     document.getElementById('start').innerText = 'Restart'
@@ -95,15 +95,13 @@ function updateScore() {
     score ++
     document.getElementById('score').innerText = `Score: ${score}`
 }
-function checkWinCondition() {
-    if (score === 60){
-        clearInterval(interval)
-        canvas.style.filter = 'brightness(50%)'
-        document.getElementById('start').style.display = 'block'
-        document.getElementById('start').innerText = 'Play Again!'
-        document.getElementById('start').setAttribute('onclick', 'window.location.reload()')
-        document.getElementById('save').style.display = 'block'
-    }
+function displayWin() {
+    cancelAnimationFrame(interval)
+    canvas.style.filter = 'brightness(50%)'
+    document.getElementById('start').style.display = 'block'
+    document.getElementById('start').innerText = 'Play Again!'
+    document.getElementById('start').setAttribute('onclick', 'window.location.reload()')
+    document.getElementById('save').style.display = 'block'
 }
 
 function collisionDetection() {
@@ -134,11 +132,18 @@ function draw() {
     drawCircle()
     drawPlayerPaddle()
     collisionDetection()
-    checkWinCondition()
+    if (score === 60) {
+        displayWin()
+        return
+    }
     movePaddle()
-    bounceBall()
+    if (!bounceBall()) {
+        displayGameOver()
+        return
+    }
     ballX += BALL_SPEED_X
     ballY += BALL_SPEED_Y
+    requestAnimationFrame(draw)
 }
 
 function bounceBall() {
@@ -147,7 +152,7 @@ function bounceBall() {
     } else if (ballY + BALL_SPEED_Y < BALL_RADIUS) {
         BALL_SPEED_Y = -BALL_SPEED_Y
     } else if (ballY + BALL_SPEED_Y > canvas.height - BALL_RADIUS) {
-        displayGameOver()
+        return false
     } else if (ballX > paddleX && ballX + BALL_SPEED_X < paddleX + paddleWidth && ballY + BALL_SPEED_Y > canvas.height - BALL_RADIUS - paddleHeight) {
         BALL_SPEED_Y = -BALL_SPEED_Y
         if (ballX - paddleX < paddleWidth / 2) {
@@ -160,6 +165,7 @@ function bounceBall() {
             }
         }
     }
+    return true
 }
 
 function keyDownHandler(event) {

@@ -15,4 +15,4 @@ ALTER TABLE ONLY scoreboard ADD CONSTRAINT pk_scoreboard_id PRIMARY KEY (id);
 
 -- Sample data for tests
 INSERT INTO scoreboard(user_name, game, score) VALUES ('Kacper','snake',1);
-INSERT INTO scoreboard(user_name, game, score) VALUES ('Kacper','reaction_game',0.444);
+INSERT INTO scoreboard(user_name, game, score) VALUES ('Kacper','reaction_time',0.444);
