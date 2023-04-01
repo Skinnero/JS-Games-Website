@@ -3,7 +3,7 @@ const FIELD_IMG = 'static/images/snake_grass.png'
 const SNAKE_IMG = 'static/images/snake_on_grass.png'
 const APPLE_IMG = 'static/images/apple_on_grass.png'
 
-let snakeSpeed = 1000
+let snakeSpeed = 500
 let interval = undefined
 let apple = []
 let score = 0
@@ -172,7 +172,7 @@ function moveSnake(snake) {
         if (newSnakeHead[0] != apple[0] || newSnakeHead[1] != apple[1]) {
             snakeBody.pop()
         } else {
-            snakeSpeed -= 10
+            snakeSpeed -= 5
             score ++
             appleOnBoard = false
         }

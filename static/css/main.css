@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background-color: bisque;
+    background-color: rgb(255, 225, 187);
     filter: brightness(70%);
     font-family: 'Nunito', sans-serif;
 }
@@ -20,14 +20,19 @@ ul{
 #left-li{
     float: left;
 }
+#left-li-front{
+    float: left;
+    padding-left: 20%;
+}
 
 #right-li{
     float: right;
+    padding-right: 20%;
 }
 
 li a{
     display: block;
-    color: rgb(192, 192, 192);
+    color: yellow;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -41,5 +46,5 @@ h1{
 
 p{
     text-align: justify;
-    margin: auto 10px auto 10px;
+    margin: auto 22% auto 22%;
 }
